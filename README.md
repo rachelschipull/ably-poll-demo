@@ -2,7 +2,7 @@
    
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository plus [Ably Realtime](https://ably.com/) API demo.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository plus [Ably Realtime](https://ably.com/) API demo. Create a movie poll that updates in real time.
 
 ## Installation
 
