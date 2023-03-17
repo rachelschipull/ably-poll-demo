@@ -19,10 +19,13 @@ if (chartContainer) {
     
         chart.render();  
   
-        let ably = new Ably.Realtime(process.env.ABLY_KEY);  
-        let channel = ably.channels.get('ably-nest');  
-        channel.subscribe('vote', function(poll) {  
-            console.log(poll)
+        fetch('/config')
+            .then(response => response.json())
+            .then(config => {
+                let ably = new Ably.Realtime(config.ABLY_KEY);  
+                let channel = ably.channels.get('ably-nest');  
+                channel.subscribe('vote', function(poll) {  
+                console.log(poll)
               
             dataPoints = dataPoints.map(x => {  
                 if (x.label == poll.data.movie) {  
@@ -34,4 +37,4 @@ if (chartContainer) {
             });  
             chart.render();  
         });  
-}
+})}
