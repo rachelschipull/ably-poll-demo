@@ -6,14 +6,14 @@ import { Controller } from '@nestjs/common';
 async create(poll) {  
     const ably = require('ably');
 
-    // replace with your API Key   
-    const ablyclient = new ably.Realtime(process.env.ABLY_KEY);
+    // replace "process.env.ABLY_SUB" with your ABLY subscriber API Key   
+    const ablyclient = new ably.Realtime(process.env.ABLY_SUB);
 
     const channel = ablyclient.channels.get('ably-nest');  
 
     const data = {  
         points: 1,  
-        movie: poll.movie  
+        snack: poll.snack  
     };  
 
     await channel.publish('vote', data);  
